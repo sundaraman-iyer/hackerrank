@@ -1,0 +1,47 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'plusMinus' function below.
+#
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def plusMinus(arr):
+    psv_counter = 0
+    ngv_counter = 0
+    zr_counter = 0
+    
+    for i in arr:
+        if i < 0:
+            ngv_counter +=1
+        elif i > 0:
+            psv_counter +=1
+        else:
+            zr_counter +=1
+    
+    #calc ratios
+    
+    psv_ratio = (psv_counter/len(arr))
+    ngv_ratio = (ngv_counter/len(arr))
+    zr_ratio = (zr_counter/len(arr))
+    
+    psv_ratio = "{:.6f}".format(psv_ratio)
+    ngv_ratio = "{:.6f}".format(ngv_ratio)
+    zr_ratio = "{:.6f}".format(zr_ratio)
+    
+    print((psv_ratio))
+    print(ngv_ratio, end="\n")
+    print(zr_ratio)
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    plusMinus(arr)

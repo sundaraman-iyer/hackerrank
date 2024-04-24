@@ -1,0 +1,66 @@
+#3month prep- number line jump
+
+Given:
+
+x1 = kangaroo1 start
+v1 = jump of kang1
+x2 = kangaroo2 start
+v2 = jump of kang2
+
+so if x1<x2 and v1 < v2:
+	print No
+elif if x1<x2 and v1 > v2:
+	print Yes
+else:
+	print No
+
+Stupid Dickhead:
+
+The logic is built with the physic formula otherwise
+
+It will take bruteforce method to check the solution
+
+Get your head together
+
+They are doing everything to relieve you of your duties
+
+And here You are doing dick shit nothing
+
+Get better on logic building and fundamental syntaxes
+
+----
+
+The solution is solving using the speed = dist/time
+
+v = jumps/sec
+x = start pos
+
+So now the speed = dist/jumps
+
+dis1 = (v1 * j) + x1
+dis2 = (v2 * j) + x2
+
+now to find the value of j:
+
+x1 + (v1*j) = x2 + (v2*j)
+x2-x1 = (v1-v2)*j
+x2-x1/v1-v2 =j
+
+==> Since, the kang can only make integer jumps i.e no float allowed
+
+Hence, 
+
+(x2-x1)%(v1-v2) = 0
+
+
+Final Logic:
+
+def kangaroo(x1, v1, x2, v2):
+    # Write your code here
+    
+    if v2 > v1:
+        return "NO"
+    elif (x2-x1)%(v1-v2) == 0:
+        return "YES"
+    else:
+        return "NO"

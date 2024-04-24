@@ -1,0 +1,93 @@
+#hackerrank solution Zipped
+
+Remember: zip function always returns a list of tuples.
+
+print zip([1,2,3,4,5,6],'Hacker')
+>> [(1, 'H'), (2, 'a'), (3, 'c'), (4, 'k'), (5, 'e'), (6, 'r')]
+
+Given:
+
+X = No.of Subjects
+N = No.of Students
+
+Goal:
+
+1. Find the average
+
+Solution: 
+
+1. Take the user input
+
+X,N = map(int, input().split())
+
+2. Now I have to store the values 
+
+result= []
+
+3. Convert the input of 3 subject's Marks to a list
+
+for i in range(0,X):
+	ls = list(input().split()) # this the marks input
+	print(ls)
+#o/p:
+    ['89', '90', '78', '93', '80']
+
+    ['90', '91', '85', '88', '86']
+
+    ['91', '92', '83', '89', '90.5']
+
+4. Converting the string values of marks to float
+
+ls = [float (j) for j in ls] # coverted string values to float
+
+5. Appending to result list
+
+result += ls
+
+for i in range (0,X):
+	ls  = list(input().split())
+	ls = [float (j) for j in ls]
+	result += [ls]
+print(result)
+
+6. Converting the result to zip
+
+zip(result)
+
+Unpacking the list because of I want a list of tuple
+
+Not a list tuple of lists
+
+Wrong Output:
+
+Code: list(zip(result))
+
+[([89.0, 90.0, 78.0, 93.0, 80.0],), ([90.0, 91.0, 85.0, 88.0, 86.0],), ([91.0, 92.0, 83.0, 89.0, 90.5],)]
+
+Right Output:
+
+Code: zipVar = list(zip(*result))
+
+[(89.0, 90.0, 91.0), (90.0, 91.0, 92.0), (78.0, 85.0, 83.0), (93.0, 88.0, 89.0), (80.0, 86.0, 90.5)]
+
+7. Now all I have to do is print out the average
+
+For this I have to access individual elements inside the tuple
+
+Hence, below code
+
+for i in zipVar:
+	print(sum(i)/x)
+
+8. Final Code
+
+n, x= map(int, input().split())
+student_marks=[]
+for i in range(x):
+    a=list(map(float, input().split(" ")))
+    student_marks.append(a)
+
+zipVar = list(zip(*student_marks))
+
+for i in zipVar:
+    print(sum(i)/x)

@@ -1,0 +1,35 @@
+#hackerrank exception solution
+
+Given:
+
+1. First line T integer inputs of test cases
+2. Second line T, input seperate by space a and b
+
+Goal:
+
+1. Raise Exception and print it
+
+Solution:
+
+n = int(input())
+
+x,y = input().split() # ask inside for loop since, you need to take 3 values
+
+try:
+	print x//y # 3//2 o/p: 1; 1//2 o/p: 0 
+
+except (ValueError, ZeroDivisionError) as e:
+	print("Error Code:",e)
+
+Corrected Code:
+
+n = int(input())
+
+for i in range(n):
+    try:
+        x, y = input().split()
+        print(int(x)//int(y))
+    except ZeroDivisionError as e:
+        print("Error Code:",e)
+    except ValueError as v:
+        print("Error Code:",v)

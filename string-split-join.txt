@@ -1,0 +1,36 @@
+#hackerrank split and join string
+
+Goal: You are given a string. Split the string on a " " (space) delimiter and join using a - hyphen. 
+
+Given:
+
+1. 
+
+>>> a = "this is a string"
+>>> a = a.split(" ") # a is converted to a list of strings. 
+>>> print a
+['this', 'is', 'a', 'string']
+
+2. 
+
+>>> a = "-".join(a)
+>>> print a
+this-is-a-string 
+
+Code:
+
+a. def splitAndJoin(line):
+	line = line.split(" ")
+	line = "-".join(line)
+
+b. Final Code:
+
+def split_and_join(line):
+        line = line.split(" ")
+        line = "-".join(line)
+        return line
+
+if __name__ == '__main__':
+    line = input()
+    result = split_and_join(line)
+    print(result)

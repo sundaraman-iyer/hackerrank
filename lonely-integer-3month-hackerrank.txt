@@ -1,0 +1,28 @@
+#hackerrank 3 month prep - Lonely Integer
+
+Given:
+
+s = [1,2,3,4,3,2,1]
+
+To find: Unique Element
+
+[4]
+
+Solution:
+
+1. This a XOR(^) gate operation
+
+[4]
+
+1 ^ 1 = 0
+1 ^ 0 = 0
+
+2. code
+def lonelyinteger(a):
+    result = 0 
+    
+    for i in a:
+        result ^= i
+    return result
+
+

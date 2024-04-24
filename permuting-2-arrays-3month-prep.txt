@@ -1,0 +1,28 @@
+#permuting two arrays
+
+Given:
+
+2 array given
+
+a = [0,1] - Sort in asc
+b = [0,2] - Sort in desc
+
+k = 1
+
+To find:
+
+a' + b' = k: return True else: False
+
+Solution:
+
+1. Sort a in asc, b in desc
+
+a.sort()
+b.sort(reverse = True)
+
+for i in range(len(A)):
+	if a[i] + b[i] < k:
+		return "NO"
+
+return "YES"
+

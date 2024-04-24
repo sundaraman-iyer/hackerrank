@@ -1,0 +1,42 @@
+Given:
+
+a = [1,2,3,4,5,6,7,8,9]
+
+t = int(input()) # date
+m = int(input()) # elements
+
+numbers = [2, 4, 6, 10]
+target_number = 8
+
+for i, number in enumerate(numbers):
+    complementary = target_number - number
+    if complementary in numbers[i:]:
+        print("Solution Found: {} and {}".format(number, complementary))
+        break
+else:
+    print("No solutions exist")
+
+-----
+
+This challenge is of sliding window
+
+a = [1,2,3,4,5,6,7,8,9]
+
+d = 6
+
+m = 2
+
+def bd(s,d,m):
+    count = 0
+    total = sum(s[:m])
+    
+    if total == d:
+        count +=1
+    
+    #sliding window
+    for i in range(m, len(s)): #2, 8
+        total += s[i] # 3+..+9 #adding with each iteration
+        total -= s[i-m] #excluding the last element #total - s[0] #next iteration of 3 
+        if total == d:
+            count +=1
+    return count

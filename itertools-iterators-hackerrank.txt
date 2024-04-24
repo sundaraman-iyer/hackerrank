@@ -1,0 +1,54 @@
+#hackerrank iterables and iterators
+
+Given:
+
+1. N = list of lowercase english letters
+2. k = int for index
+
+I/p: 
+
+1st line = len of list
+2nd line = Characters separated by space
+3rd line = Int K, denoting the number of indices to be selected
+
+For this particular example consider, the index to be starting from 1
+
+Goal:
+
+Find the probability that K will be character 'a'
+
+Solution:
+
+1. Ask for len
+
+length = int(input())
+
+2. Ask for elements
+
+char = list(input().split())
+
+3. Indices to be taken
+
+k = int(input())
+
+4. To find the probability I have to create a pair of tuple based on the number given in k
+
+if k == 2; make a pair of 2
+k == 3; make a pair of 3
+
+Hence for this very particular purpose, we will be using itertools because, it has the combinations module
+
+combinations('ABCD', 2) >>> AB AC AD BC BD CD
+
+So convert the combinations to a list
+
+tup = list(combinations(l, k))
+
+5. Create a counter and check for probability
+
+count = 0
+
+for i in tuples:
+	if 'a' in tuples:
+		count += 1
+print(round(count/len(tuples)))

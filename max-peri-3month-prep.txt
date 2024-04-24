@@ -1,0 +1,29 @@
+#max-permiter-triangle
+
+
+Given:
+
+1. Choose the one with the longest maximum side. 
+2. If more than one has that maximum, choose from them the one with the longest minimum side.
+3. If more than one has that maximum as well, print any one them.
+
+If non-degenerate triangle exist [-1]
+
+Understand the problem
+
+Degenerate Triangle: x+y<= third side
+
+Non-Degenerate Triangle: Whatever pair fulfils the condition x+y<= third side - Ignore that pair
+
+Soln:
+
+def maxPeri(sticks):
+	sticks.sort()
+	i = len(sticks) - 3 # bcz, we have to traverse from last and check for the3rd last number and from there we can check for second last check for last as well
+	while i>=0 and sticks[i]+sticks[i+1] <= sticks[i+2]:
+		i-=1 # going to previous element for the next iteration
+	
+	if i>=0:
+		return [sticks[i], sticks[i+1], sticks[i+2]]
+	else:
+		return [-1]

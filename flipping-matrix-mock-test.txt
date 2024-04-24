@@ -1,0 +1,28 @@
+#flipping matrix
+
+2n x 2n matrix
+
+n x n matrix max sum of the upper matrix
+
+Reference: https://youtu.be/fc0jVZqCvW8 at time 14:10
+
+The place of r[0][0] can only be taken by r[0][3]
+The place of c[0][0] can only be taken by c[0][3]
+
+ANd similarly for evey other pair
+
+
+Logic:
+
+max(max(a[0][0], a[0][3])), max(a[3][0], a[3][3]) 
+
+Python Code:
+
+n = len(matrix)
+
+s = 0
+
+for i in range(n//2): # iterating to keep the elements in first quad
+	for j in range(n//2):
+		s += max(matrix[i][j], matrix[i][n-j-1], matrix[n-i-1][j], matrix[n-i-1][n-j-1])
+return s

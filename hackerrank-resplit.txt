@@ -1,0 +1,39 @@
+#hackerrank solution for re.split()
+
+Given:
+
+string input of 100,000,000.000
+
+O/p: 
+
+100
+000
+000
+000
+
+Code:
+
+1. We need to use re.split()
+
+Syntax: re.split("symbol_to_split_with", "actual_string")
+
+#symbol_to_split_with a.k.a delimiter
+
+2. Current Code
+
+regex = r '' #complete the code here
+
+import re
+
+print("\n".join(re.split(regex, input())))
+
+3. We need to check: How to put 2 delimiters i.e. ',' & '.' in re.split
+
+
+regex_pattern = "[,.]"
+
+import re
+
+print("\n".join(re.split(regex_pattern, input())))
+
+# what I did was to add [] and place my delimiters inside of it

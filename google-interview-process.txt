@@ -1,0 +1,84 @@
+Google Interview Prep
+
+Rounds:
+
+1. Telephonic Round
+2. 5 coding test
+3. 3 onsite coding round
+4. Googliness Round
+
+Feedback:
+
+Strong Hire
+
+Hire
+
+Leaning Hire
+
+Leaning No Hire
+
+No Hire
+
+L4: 2 to 5 years of Exp: You need 2 Hires
+
+----
+
+Interview Round:
+
+1. Telephonic and Onsite: DSA Coding Rounds
+
+Solve 2 Coding Questions in 45 mins
+
+2 questions: Easy + Medium or Medium + Medium
+
+2. DSA Topics: 3 months
+
+a. Binary Searc
+b. Graphs, BFS/ DFS/ Flodd Fill
+c. Tree traversal
+d. Hash tables
+e. Linked List, stacks, queues, sliding window
+f. Binary Heaps
+g. Dynamic Programming
+e. Union Find
+h. String Manipulation
+i. Arrays
+k. Recursion - Backtracking - Greedy Algorithm
+l. Trie, Segment Trees, Fenwick trees, bitmasks
+m. Maps
+
+3. Get Leetcode Premium 
+
+Solve DSA Sheet 350 questions
+Solve Google Leetcode questions
+
+4. Communicate 
+
+a. Schedule the interview in Your timezone
+b. Speak less words per min
+c. As the questions to gain clarity
+
+5. Write production ready code
+
+a. Method names should be a verb
+b. Use camel case for Class and method names
+c. variable names use snake_case
+
+6. Googleyness Round: Checked for Humble and Learning from Mistakes
+
+USE: STAR Technique to solve the question
+
+Situation - Task - Action - Result
+
+a. Remember the tech and non-tech aspect of the project
+b. Feedback from the manager
+c. Initiatives you took
+d. Miscommunication between You and any team member
+e. Negative Feedback by the manager
+f. Failed to deliver on deadline
+
+Bonus:
+
+1. Practive Linked List and Dynamic Programming Questions
+2. Always ask: Bruteforce solution to Optimal Solution
+3. If Time remaining: Provide alternative solutions

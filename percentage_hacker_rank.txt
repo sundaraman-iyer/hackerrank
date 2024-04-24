@@ -1,0 +1,67 @@
+#finding the percentage hackerrank
+
+Insult = You are too naive to solve this problem
+
+Goal:
+
+1. Find the average of the marks of a from the given dictionary
+
+Given:
+
+1. User input the total number of users
+
+2. total_users = {
+			'krishna':[2,3,4],
+		  	'test':[5,6,7],
+			'deve': [7,8,9]
+			}
+3. I will given a username and then, I have to calculate the average for that user
+
+Analysis:
+
+1. Approach
+
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {} # name of the dictionary where everything is stored
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line)) # appending the elements to the list
+        student_marks[name] = scores
+    query_name = input() # user I have to calculate the average
+    print(stundents_marks[query_name]) 
+
+>> (student_marks[query_name])
+
+This will print all the Name and Marks:
+
+
+Krishna 67 68 69
+Arjun 70 98 63
+Malika 52 56 60
+Malika
+
+And then finally print the sum ==> sum() will print the sum of all the list
+
+2. Taking the Average
+
+len(student_marks[query_name])
+
+>> student_marks is the complete dictionary
+>> query_name is the name of the user who needs to be query
+
+3. Final COde to be appended 
+
+print((sum(student_marks[query_name]))/len(student_marks[query_name]))
+
+>> 56.0
+
+This is giving the output in float digit
+
+4. Double float digit
+
+print(format(sum(student_marks[query_name]))/len(student_marks[query_name]),".2f")
+
+>> formatting the code to give the double digit float answer
+
+.2f in format will print the data in double digit format

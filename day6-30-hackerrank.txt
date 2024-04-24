@@ -1,0 +1,58 @@
+#hackerrank day 6 code challenge: Let's review
+
+Given:
+
+S = string
+N = length, index starts from 0
+
+Goal:
+
+Print its even and odd indexed characters 
+As 2 space separated strings 
+
+Solution:
+
+1. We need a variable to keep a track of even and odd index characters
+
+t = int(input())
+
+
+even = []
+odd = []
+
+for _ in range (t):
+    s= input() # placing input here because I need two input string from the user
+    for i in range (len(s)):
+        if i%2 == 0:
+            even +=[s[i]]
+        else:
+            odd +=[s[i]]
+
+print(even, odd)
+
+# o/p:
+
+What I am getting the output ['H', 'c', 'e', 'R', 'n'] ['a', 'k', 'r', 'a', 'k']
+
+The code here is taking both the string input available in the code
+
+And adding them to the same list, however, the code should be take both the input 
+
+And add them to seperate list
+
+
+Corrected code:
+
+t = int(input())
+for _ in range (t):
+    s = input()
+    even = '' #initiate an empty variable
+    odd = '' # initiate an empty variable
+    
+    for i in range (len(s)):
+        if i%2 == 0:
+            even +=s[i]
+        else:
+            odd +=s[i]
+
+    print('{} {}'.format(even, odd))

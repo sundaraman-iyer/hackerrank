@@ -1,0 +1,107 @@
+Link: https://www.youtube.com/watch?v=ulvgide_NWY
+
+day 11- 2d Array:
+
+6x6 ==> That is why it is called 2D array
+
+1 1 1 0 0 0
+0 1 0 0 0 0
+1 1 1 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+
+In this the last row cannot have hour glass i.e row(n-1)
+And last column cannot have hour glass i.e column(n-1)
+
+Approach: Nested for loop
+
+Loop through the rows with outer for loop 
+
+And then loop through the columns for each row in the inner for loop
+
+And then for each cell in that location, we will calc, the hour glass sum at that location
+
+We will keep the counter for: current_hour_glass_sum and max_hour_glass_sum
+
+And if the current > max:
+
+max=current
+
+Solution:
+
+1. So when we access the array, it will be in the format:
+
+A[i][j] where i = row, j = column
+
+2. Understand
+
+The first and last row cannot have hour glass
+The first and last column cannot have hour glass
+
+Hence, the outer for loop only needs to be from 1,5 i.e rows
+the outer for loop only needs to be from 1,5 i.e columns
+
+3. Logic:
+
+current_hour_glass_sum can be calc using a function get_hour_glass_sum
+
+a b c
+  d
+e f g
+
+def get_hour_sum(matrix, row, col):
+	sum = 0
+	sum += matrix[row-1][col-1] #element to the top left of the center element i.e a
+	sum += matrix[row-1][col] #element directly above the center element i.e b
+	sum += matrix[row-1][col+1] #element to the top right of the center element i.e c
+	sum += matrix[row][col] # Getting the center element
+	sum += matrix[row+1][col-1] #element to the left bottom of the center element i.e e
+	sum += matrix[row+1][col] #element directly below it i.e f
+	sum += matrix[row+1][col+1] # element to the right bottom of the center element i.e g
+	return sum
+
+4. If the current_hour_glass_sum > max_hourglass_sum:
+max_hour_glass_sum =  current_hour_glass_sum
+
+max_hour_glass_sum = -63 # bcz You have 6x6 i.e 0 to 6 = 7 elements
+
+
+Final Code:
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def get_hour_glass_sum(matrix, row, col):
+    sum = 0
+    sum += matrix[row-1][col-1] #element to the top left of the center element i.e a
+    sum += matrix[row-1][col] #element directly above the center element i.e b
+    sum += matrix[row-1][col+1] #element to the top right of the center element i.e c
+    sum += matrix[row][col] # Getting the center element
+    sum += matrix[row+1][col-1] #element to the left bottom of the center element i.e e
+    sum += matrix[row+1][col] #element directly below it i.e f
+    sum += matrix[row+1][col+1] # element to the right bottom of the center element i.e g
+    return sum
+
+
+if __name__ == '__main__':
+
+    arr = []
+
+    for _ in range(6):
+        arr.append(list(map(int, input().rstrip().split())))
+
+    max_hour_glass_sum = -63 #since 0 to 6 elements from -9 to 9
+    for i in range(1,5):
+        for j in range(1,5):
+            current_hour_glass_sum = get_hour_glass_sum(arr, i ,j)
+            if current_hour_glass_sum > max_hour_glass_sum:
+                max_hour_glass_sum = current_hour_glass_sum
+    
+    print(max_hour_glass_sum)
+

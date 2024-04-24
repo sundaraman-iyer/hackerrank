@@ -1,0 +1,33 @@
+#hackerrank input solution
+
+Given:
+
+1. x,k are interger input
+2. P is a polynomial
+
+Goal:
+
+To find whether P(x) == k
+
+Solution:
+
+x,k = input().split()
+x = int(x)
+k = int(y)
+
+P = input()
+
+#take the eval function which will directly calc the ans based on the dynamic input
+print(eval(P)
+
+Final Code:
+
+x,k = input().split()
+x,k = int(x), int(k)
+
+p = input()
+
+if eval(p) == k:
+    print (True)
+else:
+    print (False)

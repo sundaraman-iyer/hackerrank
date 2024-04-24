@@ -1,0 +1,84 @@
+# map and lambda function
+
+Goal:
+
+1. Lambda func to print fibonacci series and their cube in single line
+
+Analysis:
+
+1. 0,1,1,2,3,5,8...
+
+2. Conditions
+
+a = 0
+b = 1
+
+result = []
+
+if i == 0:
+	pass # if user input = 0, do nothing
+elif i == 1:
+	result.append(a) # user input = 1, append to 0 to list; why? because before 0 comes 1 i.e. fibonacci series
+else:
+	append(a) # add 0
+	append(b) # add 1
+	for n in range(2,i): # why 2? because I have already appended the 0 and 1 to the empty list
+		c = a + b # fibonacci logic
+		a = b
+		b = c
+		result.append(c) # appending to the list
+	return result
+
+3. final code
+
+def fib(i):	
+	a = 0
+	b = 1
+
+	result = []
+
+	if i == 0:
+		pass # if user input = 0, do nothing
+	elif i == 1:
+		result.append(a) # user input = 1, append to 0 to list; why? because before 0 comes 1 i.e. fibonacci series
+	else:
+		append(a) # add 0
+		append(b) # add 1
+		for n in range(2,i): # why 2? because I have already appended the 0 and 1 to the empty list
+			c = a + b # fibonacci logic
+			a = b
+			b = c
+			result.append(c) # appending to the list
+		return result
+
+i = int(input())
+print(fib(i))
+
+4. Final code
+
+def fibonacci(i):
+    a = 0
+    b = 1
+
+    result = []
+
+    if i == 0:
+        pass # if user input = 0, do nothing
+    elif i == 1:
+        result.append(a) # user input = 1, append to 0 to list; why? because before 0 comes 1 i.e. fibonacci series
+    else:
+        result.append(a) # add 0
+        result.append(b) # add 1
+        for n in range(2,i): # why 2? because I have already appended the 0 and 1 to the empty list
+            c = a + b # fibonacci logic
+            a = b
+            b = c
+            result.append(c) # appending to the list
+     return result
+
+cube = lambda x : x ** 3
+    
+    
+if __name__ == '__main__':
+    n = int(input())
+    print(list(map(cube, fibonacci(n))))

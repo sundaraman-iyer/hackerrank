@@ -1,0 +1,38 @@
+#hackerrank tuples
+
+Goal:
+
+1. Print the hash value of tuple
+
+Given:
+
+1. List where the values of N will be stored
+
+Analysis:
+
+1. Create a tuple
+2. Print the hash value of it using hash(n)
+
+Code:
+
+Given Code: 
+
+A. if __name__ == '__main__':
+    n = int(input())
+    integer_list = map(int, input().split())
+    
+B. Creating a tuple from list
+
+	integer_tuple = tuple(integer_list)
+    
+C. Printing the hash-value
+
+	print(hash(integer_tuple))
+
+Final Code:
+
+if __name__ == '__main__':
+    n = int(input())
+    integer_list = map(int, input().split())
+    integer_tuple = tuple(integer_list)
+    print(hash(integer_tuple))

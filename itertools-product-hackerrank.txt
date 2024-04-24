@@ -1,0 +1,43 @@
+#hackerrank itertools.product()
+
+itertools.product = Nested For Loop
+
+return type: Memory location ==> Convert to list
+
+Output will be a tuple
+
+Eg:
+print list(product([1,2,3],[3,4]))
+[(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)]
+
+Given:
+
+1. Input is A, B list
+
+A = [1, 2]
+B = [3, 4]
+
+To FInd:
+
+==> AxB = [(1, 3), (1, 4), (2, 3), (2, 4)
+
+Solution:
+
+A> Wrong Code: a,b = map(int, input().split())
+
+Why?
+
+You cannot take inputs for two lists at the same time
+
+It will give out: Too many input to unpack error
+
+B> Correct way of optimizing the code:
+
+# You should have done this in 1 min
+from itertools import product
+
+a = map(int, input().split())
+b = map(int, input().split())
+
+for i in product(a,b):
+    print(i, end=' ')

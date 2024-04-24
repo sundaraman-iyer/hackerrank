@@ -1,0 +1,52 @@
+#hackerrank any and all solution
+
+Given:
+
+1. List of integers
+
+Goal:
+
+If all the integers positive
+
+Only then check if the numbers are pallindrome
+
+Solution:
+
+1. Take 2 inputs
+
+n = int(input())
+
+l = input().split() # elements are in string so You need to convert them
+
+result = []
+pallin = []
+
+2. Appending and checking for positive integer
+
+for i in l:
+	result.append(int(i)>0)
+print(result)
+
+3. Checking for pallindrome
+
+for i in l:
+	pallin.append(i == i[::-1])
+print(pallin)
+
+Final Code:
+
+n = int(input())
+
+l = input().split()
+
+result = []
+pallin = []
+
+for i in l:
+    result.append(int(i)>0)
+    pallin.append(i == i[::-1])
+
+if all(result):
+    print(any(pallin))
+else:
+    print("False")

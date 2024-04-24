@@ -1,0 +1,146 @@
+#hackerRank Lists problem
+
+
+Goal: 
+
+1. Perform Operation on a List based on the number of user inputs
+2. Operations: Insert, print, remove, append, sort, pop, reverse
+
+Things to learn:
+
+1. What, and How command:
+a. Insert
+b. Remove
+c. append
+d. sort
+e. pop
+f. reverse
+
+Analysis:
+
+A. Command Working:
+
+a. Insert: 
+
+Syntax:list.insert(pos, elmnt) 
+
+Eg: fruits.insert(1, "orange") 
+
+b. Remove:
+
+It remove the "First" occurance of the value mentioned
+
+Syntax: list.remove(elmnt) 
+
+Eg: fruits.remove("orange") 
+
+c. Append:
+
+It adds the entire list/element to the list
+
+Syntax: list.append(elmnt) 
+
+Eg: a = ["apple", "banana", "cherry"]
+b = ["Ford", "BMW", "Volvo"]
+a.append(b)
+
+>> a = ["apple", "banana", "cherry", ["Ford", "BMW", "Volvo"]]
+
+d. Sort
+
+Sorts the elements in ascending by default
+
+Syntax: list.sort(reverse=True|False, key=myFunc) 
+
+Eg:
+
+cars = ['Ford', 'Mitsubishi', 'BMW', 'VW']
+
+cars.sort(reverse=True)
+
+>> ['Mitsubishi', 'Ford'', 'BMW', 'VW']
+
+e. pop
+
+Removes the element which is mentioned in the list
+
+Syntax: list.pop(pos) 
+
+Eg: 
+
+fruits = ['apple', 'banana', 'cherry']
+
+x = fruits.pop(1) 
+
+f. Reverse
+
+Reverses the sorting order of the list
+
+Syntax: list.reverse() 
+
+Eg:
+
+fruits = ['apple', 'banana', 'cherry']
+
+fruits.reverse() 
+
+>>> ['cherry', 'banana', 'apple'] 
+
+____ooo____
+
+1. Take the elements from the user and slipt it into elements of the list using:
+
+user_input = insert 1, 5
+
+Syntax: 
+
+user_input = input().split()
+
+>> 
+i/p insert 1 5
+o/p: ['insert','1','5']
+
+So, the logic here is:
+
+I am inserting the keyword: insert inside the list
+
+so that when the command from the user is insert, at that time,
+
+The logic of inserting will work
+
+2. Logic of insert
+
+current we need to have the "insert" keyword inside the list at index[0]
+
+So that when the user input gives the insert command, 
+
+Insert logic gets executed ['insert','1','5']
+
+Syntax: 
+
+        if user_input[0] == 'insert':
+            my_list.insert(int( user_input[1]), int(user_input[2]))
+
+3. The same goes for the logic of the all the other
+
+
+        if user_input[0] == 'insert':
+            my_list.insert(int( user_input[1]), int(user_input[2]))
+        elif user_input[0] == 'print':
+            print(my_list)
+        elif user_input[0] == 'remove':
+            my_list.remove(int(user_input[1]))
+        elif user_input[0] == 'append':
+            my_list.append(int(user_input[1]))
+        elif user_input[0] == 'sort':
+            my_list.sort(reverse = False)
+        elif user_input[0] == 'pop':
+            my_list.pop()
+        elif user_input[0] == 'reverse':
+            my_list.reverse()
+
+
+4. Convert the string input as integer
+
+Since, the value from split input will be string
+

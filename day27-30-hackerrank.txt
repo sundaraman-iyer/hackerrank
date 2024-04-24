@@ -1,0 +1,32 @@
+#unit testing day27
+
+Given:
+
+A code
+
+Write the test cases to find bugs
+
+Soln:
+
+class TestDataUniqueValues(object):
+	@staticmethod
+	def get_array():
+		return []
+
+class TestDataUniqueValues(object):
+	@staticmethod
+	def get_array():
+		return [30,15,20]
+
+	@staticmethod
+	def get_expected_result():
+		return 1
+
+class TestDataExactlyTwoDifferentMinimums(object):
+	@staticmethod
+	def get_array():
+		return [30,15,45,15]
+
+	@staticmethod
+	def get_expected_result():
+		return 1

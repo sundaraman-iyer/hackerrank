@@ -1,0 +1,57 @@
+#itertools combinations hackerrank solution
+
+return type: memory location, then list of tuples
+
+Given:
+
+1. string and int
+
+Goal:
+
+Print lexicographic sorted order combination of string
+
+Solution:
+
+1. from itertools import combinations
+
+s, k = input().split()
+k = int(k)
+
+for i in range (1,k+1): # loop for creating the iterating till user mentioned length eg. 3
+    for j in combinations(sorted(s),i): # loop for creating the sorted combinations upto user mentioned len
+        print(j)
+
+# o/p:
+
+    ('A',)
+
+    ('C',)
+
+    ('H',)
+
+    ('K',)
+
+    ('A', 'C')
+
+    ('A', 'H')
+
+    ('A', 'K')
+
+    ('C', 'H')
+
+    ('C', 'K')
+
+    ('H', 'K')
+
+2. All that I have to do is join
+
+Join can iterate through a tuple, list, dict, set and join based on space or any delimiter
+
+from itertools import combinations
+
+s, k = input().split()
+k = int(k)
+
+for i in range (1,k+1): # loop for creating the iterating till user mentioned length eg. 3
+    for j in combinations(sorted(s),i): # loop for creating the sorted combinations upto user mentioned len
+        print(''.join(j))

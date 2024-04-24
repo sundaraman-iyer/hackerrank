@@ -1,0 +1,76 @@
+#day 23 Level Order Traversal
+
+Also called as BFS
+
+Given:
+
+Node pointer root - Reference to the root
+
+Output: Print node.data items as space-seperated line of integers.
+
+No return value is expected
+
+Logic:
+
+		5
+	3			9
+2		4	7		10
+
+1. Use a queue
+
+first element = 5
+
+Append = 5 to queue
+
+Check for the element left and right
+
+Pop 5 from Queue
+
+Print("5")
+
+Add left and right element
+
+Meaning:
+
+Iteration 1:
+
+Queue = 5
+
+Check left and right
+
+add 3 and 9 to queue
+
+Then pop 5
+
+Print 5
+
+Iteration 2:
+
+Queue = 3, 9
+
+Check for 3's left and right element
+
+Append 2 and 4
+
+Then pop 3
+
+Queue = 9,2,4
+
+And the iteration continues
+
+Till the queue becomes empty completly
+
+Code:
+
+def levelOrder(root):
+	q = [] #initializing an empty queue
+	q.append(root)
+	while len(q) !=0:
+		root = q.pop(0)
+		print(root.info, end= ' ') #printing the value of the queue
+		if root.left is not None or root.right is not None:
+			q.append(root.left)
+			q.append(root.right)
+
+
+

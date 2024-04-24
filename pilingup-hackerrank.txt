@@ -1,0 +1,111 @@
+#hackerrank Pilingup
+
+Given:
+
+1. horizontal row of n cubes
+
+2. Create a new pile with: cube[i] is top of cube[j], then sideLength[j]>=sideLength[i]
+
+3. When stacking the cubes, you can only pick up either the leftmost or the rightmost cube each time.
+
+Goal:
+
+1. Print Yes if it is possible to stack the cubes. Otherwise, print No. 
+
+Solution:
+
+a. 2 inputs => 1. taking the size of cube 2. integers present inside the cube
+
+b. blocks = [1,2,3,8,7] "Condition: Start with right most element"
+
+taking 7 then comparing with 1
+taking 2,8 comparing with 1, 7 i.e 2>1 and 8>7
+
+Diagram:
+
+8 or 3; both of them are bigger than 1
+1
+7
+
+blocks = [1,2,3,7,8]
+
+use: 1
+option: 1
+use: 2
+options: 1,2
+use: 3
+options: 1,3
+use: 7
+options: 1,7
+8 
+
+c. This is push pop scenario
+
+Hence google: Collections python doc and find something which shows push and pop
+
+from collections import deque
+
+# T is the testcase
+# n is the input for sides of cube
+
+T = int(input()) # taking 2 test cases
+
+for i in range(0,T):
+	test_case = []
+	n = int(input()) # taking the elements 
+	d = deque(map(int, input().split())) # converting it to deque for both end pop and push
+	
+	#comparision and push/pop logic
+	for i range (0,n):
+		if (d[0]>=d[-1]):
+			test_case.append(d.popleft()) # removing from left after comparing
+		elif (d[-1]>d[-0]):
+			test_case.append(d.pop()) # removing from right after comparing
+
+print(test_case)
+
+# o/p: [8,7,3,2,1]
+
+d. Now comparing with the sorted test_case
+
+Bcz at the EOD, what You need is sorted cube set
+
+print(sorted(test_case))
+
+#o/p: [1,2,3,7,8]
+
+but the what we want is the reversed order, why?
+
+because, we want to compare it with test_case
+
+print(sorted(test_case, reverse = True))
+
+if (test_case == sorted(test_case, reverse = True)):
+	print("Yes")
+else:
+	print("No")
+
+Final Code:
+
+from collections import deque
+
+T = int(input()) # taking 2 test cases
+
+for i in range(0,T):
+    test_case = []
+    n = int(input()) # taking the elements 
+    d = deque(map(int, input().split())) # converting it to deque for both end pop and push
+    
+    #comparision and push/pop logic
+    for i in range (0,n):
+        if (d[0]>=d[-1]):
+            test_case.append(d.popleft()) # removing from left after comparing
+        elif (d[-1]>d[-0]):
+            test_case.append(d.pop()) # removing from right after comparing
+    
+# print(test_case)
+
+    if (test_case == sorted(test_case, reverse = True)):
+        print("Yes")
+    else:
+        print("No")

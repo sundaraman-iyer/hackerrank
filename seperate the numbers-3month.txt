@@ -1,0 +1,85 @@
+#seperate-the-number
+
+a = "1234" is beautiful string since
+
+Rule 1: a[i] - a[i-1] = 1
+
+If not, then no beautiful string
+
+Rule 2: There should be no leading zeros
+
+Rule 3: The contents of the sequence cannot be rearranged
+
+I/p: 
+
+1. No of queries of a string
+
+Output:
+
+YES x; x is the first number of sequence
+
+Else: NO
+
+Logic:
+
+Create a beautiful string of digit length 1,2,3 or exactly half of the total length of the string
+
+99100101
+
+1 digit:
+9
+beautiful: 9,10,11,12,13
+
+Why only till 13, bcz, you cannot exceed the length of the strin
+
+2 digit:
+
+99
+
+beautiful: 99,100,101
+
+3 digit
+
+999
+
+beautiful: 999,1000,1001
+
+Code:
+
+def sep(s):
+	if len(s) == 1:
+		print("NO")
+		return 
+	else:
+		for i in range(1, len(s)//2 + 1):
+			genstr = s [:i]
+			prev = int(genstr)
+			
+			while len(genstr) < len(s):
+				next = prev + 1
+				genstr = genstr + str(next)
+				prev = next
+			if genstr == s:
+				print("YES", s[:i])
+				return
+
+Correct code:
+
+def separateNumbers(s):
+                    
+
+        if len(s) == 1:
+            print("NO") 
+            return
+        for i in range(1, len(s)//2 + 1):
+            curStr = s[:i]
+            curNum = int(s[:i])
+            while len(curStr) < len(s):
+                curNum += 1
+                curStr += str(curNum)
+
+                if curStr == s:
+                    print("YES "+ s[:i])
+                    return
+        print("NO")
+        return

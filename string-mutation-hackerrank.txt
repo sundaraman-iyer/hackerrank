@@ -1,0 +1,23 @@
+#hackerrank mutation strings
+
+Given:
+
+1. s = string 
+2. i= index position to change
+3. c = character to be changed
+
+Goal:
+
+Complete the function and by changing the character at a given position
+
+Solution:
+
+def mutate_string(string, position, character):
+    string =  string =  string[:position] + character + string[position+1:]
+    return string
+
+if __name__ == '__main__':
+    s = input()
+    i, c = input().split()
+    s_new = mutate_string(s, int(i), c)
+    print(s_new)

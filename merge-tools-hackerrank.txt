@@ -1,0 +1,42 @@
+#hackerrank merge tools
+
+def merge_the_tools(string, k):
+    start = 0
+    end = k
+    while end <= len(string):
+        temp = string[start:end] # breaking the string and storing it temp
+        chunk = list(temp)
+        # print(chunk)
+    # Your Output (stdout)
+    # ['A', 'A', 'B']
+    # ['C', 'A', 'A']
+    # ['A', 'D', 'A']
+    
+        start += k
+        end += k
+
+if __name__ == '__main__':
+    string, k = input(), int(input())
+    merge_the_tools(string, k)
+
+Corrected code:
+
+def merge_the_tools(string, k):
+    start = 0
+    result = []
+    
+    for i in range (k, len(string)+1, k):
+        l = list(string[start:i])
+        start +=k
+        
+        for j in l:
+            if j not in result:
+                result.append(j)
+        for o in result:
+            print(o, end="")
+        result.clear()
+        print()
+
+if __name__ == '__main__':
+    string, k = input(), int(input())
+    merge_the_tools(string, k))

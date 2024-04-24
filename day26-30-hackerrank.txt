@@ -1,0 +1,64 @@
+#day 26
+
+Given:
+
+i/p:
+
+Return Date: 9 6 2015 D/M/Y
+Due Date: 6 6 2015 D/M/Y
+
+Output: 
+
+45
+
+Logic:
+
+Book returned after expected day yet on the same month and year: 15 
+Book returned after expected month yet on the same year: 500
+Book returned after expected year: 10000
+
+Soln:
+
+
+if return.date == expected.date: No fine
+elif (return.date > expected.date) and return.month == expected.month and return.year == expected.year: Fine 15
+elif return.date > expected.date and return.month > expected.month and return.year == expected.year: 500 Fine 
+elif return.date > expected.date and return.month > expected.month and return.year > expected.year: 10000 Fine 
+
+
+# exact logic is checking from the biggest to the smallest
+
+Final Code:
+
+n = list(map(int, input().split()))
+return_date = n[0]
+return_month = n[1]
+return_year = n[2]
+
+d = list(map(int, input().split()))
+expected_date = d[0]
+expected_month = d[1]
+expected_year = d[2]
+
+
+#logic
+
+# Checking from the biggest
+
+if return_year < expected_year:
+    print(0)
+elif return_year == expected_year:
+    #check expected_month
+    if return_month < expected_month:
+        print(0)
+    elif return_month == expected_month:
+        #check day
+        if return_date <= expected_date:
+            print(0)
+        else:
+            print(15 * (return_date - expected_date))
+    else:
+        print(500 * (return_month - expected_month))
+        
+else:
+    print(10000)

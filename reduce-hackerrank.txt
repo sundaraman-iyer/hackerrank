@@ -1,0 +1,29 @@
+#hackerrank reduce function
+
+Given:
+
+reduce(): reduce(fun,seq) function is used to apply a particular function passed in its argument to all of the list elements mentioned in the sequence passed along.
+
+You need to import from functools
+
+Return type: 1 single element
+
+Solution:
+
+A. Using reduce
+
+t = reduce(lambda x, y : x * y,fracs)
+
+o/p:
+5/8
+
+However, we need output in 5 8
+
+B. For that the code already has Fractions imported
+
+t = Fraction(reduce(lambda x, y : x * y,fracs))
+
+O/p:
+
+5 8
+

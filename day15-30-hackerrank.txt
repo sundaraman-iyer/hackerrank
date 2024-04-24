@@ -1,0 +1,90 @@
+#day15-linked list
+
+Given:
+
+1. A head ==> Pointing to the first location
+2. A data ==> The data that has to be added to the list
+
+Task:
+
+1. Add the data at the end of the list
+2. Create a constructor for the data and next 
+3. Complete insert function
+
+Solution:
+
+Remember:
+
+a. Pro: Linked list helps in saving the data anywhere You want dynamically
+
+b. Con: You have to traverse through the entire list to get the elements
+
+Solution:
+
+Class Node:
+	def __init__(self,data):
+		self.data = data
+		self.next = None
+
+Class Solution:
+	def display(self, head):
+		current = head
+		while current:
+			print(current.data, end='')
+			current = current.next
+	
+	def insert(self,head,data):
+		newNode = Node(data) 
+		if not head: #if the data is None
+			return newNode #return the current head node
+		current = head
+
+2. Now to check whether there is new node in the list
+
+We will iterate through the list
+
+If there is a new node, then:
+				we will set the current pointer to the new Node pointer
+
+while current.next:
+	current = current.next
+current.next = newNode
+return head
+
+Remember: Linked list will point to the data of the next node, not the pointer of the next node
+
+current(data) | pointer --> next (data) | Pointer
+
+
+Final Code:
+
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None 
+class Solution: 
+    def display(self,head):
+        current = head
+        while current:
+            print(current.data,end=' ')
+            current = current.next
+
+    def insert(self,head,data): 
+        newNode = Node(data)
+        if not head:
+                return newNode
+        current = head
+        
+        while current.next:
+            current = current.next
+        current.next = newNode
+        return head
+            
+
+mylist= Solution()
+T=int(input())
+head=None
+for i in range(T):
+    data=int(input())
+    head=mylist.insert(head,data)    
+mylist.display(head); 	  	

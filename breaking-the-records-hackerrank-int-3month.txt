@@ -1,0 +1,56 @@
+#hackerrank ch4-breaking the records
+
+Given:
+
+1. Array of the points: [11,2,46,8,24,47,35]
+
+To find:
+
+Max no.of times the max points record is broken
+Max no.of times the min points record is broken
+
+Solution:
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'breakingRecords' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY scores as parameter.
+#
+
+def breakingRecords(scores):
+    min_val = scores[0]
+    max_val =  scores[0]
+    min_count, max_count = 0, 0
+    
+    for i in range (1, len(scores)):
+        if min_val < scores[i]:
+            min_val = scores[i]
+            min_count +=1
+        elif max_val > scores[i]:
+            max_val = scores[i]
+            max_count += 1
+    return min_count, max_count
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    scores = list(map(int, input().rstrip().split()))
+
+    result = breakingRecords(scores)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()

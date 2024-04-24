@@ -1,0 +1,60 @@
+#hackerrank first runnerup solution
+
+Goal:
+
+1. Find the runner up from the score sheet.
+
+Given:
+
+1. Data will be stored in a list
+
+2. No.of scores =  n
+
+3. First i/p is the total no.of scores
+
+4. Second i/p contains array - why? Bcz Array's can be used to perform mathematical operations
+
+5. 2 <= n <= 10 and -100 <=A[i]<=100
+
+Analysis:
+
+1. Understand the concept
+
+Runner means ==> n-1
+
+2. Map function
+
+a. First they are taking input from user and then splitting the input into space in between
+
+3. Logic here:
+
+a. I have a array
+
+b. I will sort it into ascending
+
+c. Then I will remove the duplicates
+
+d. Then iterate through to second last: l[-2]
+
+e. Let's check
+
+Here's code:
+
+def runner_up(arr):
+    
+    #converting the array to list and keeping the unique values
+    
+    arr = list(set(arr))
+    #sorting the code
+    arr.sort()
+    #printing the last element
+    print(arr[-2])
+
+
+
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    runner_up(arr)
+
+

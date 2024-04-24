@@ -1,0 +1,41 @@
+#hackerrank mars exploration 3 months prep
+
+Given:
+
+s = SOSSOT
+
+sos = SOS
+
+pair_sos = len(s) // len(sos)
+
+SOT !== SOS
+if str[0] !== sos[0]
+	counter +=1
+elif str[1] !== sos[1]
+	counter +=1
+else: str[2] !== sos[0]
+	counter +=1
+
+
+
+My logic was half right, the iteration part
+
+What I missed out was the ZIP function which will check 
+
+For the individual characters
+
+Final Code:
+
+s = input()
+
+count = 0
+
+r = len(s)//3
+
+target_string = "SOS"*r # for getting the target strings
+
+for i, j in zip(target_string, s): // for checking each character with each other
+	if i !=j:
+		count +=1
+
+return count

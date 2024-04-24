@@ -1,0 +1,20 @@
+#hackerrank Divisible Sum Pairs
+
+n,k = input().split()
+k = int(k)
+
+for i in range(n):
+	ar = list(map(int, input().split()))
+	for curr in range (len(ar) + 1):
+		if ar[curr + 1] == (len(ar) + 1):
+			continue	
+		else ( ar[curr] +  ar[curr + 1]) % k == 0:
+			print(arr[curr], arr[curr + 1])  
+
+# better logic here is:
+    counter = 0 
+    for i in range(n):
+        for j in range(n):
+            if i<j and (ar[i] + ar[j])%k == 0:
+                counter+=1
+    return counter   

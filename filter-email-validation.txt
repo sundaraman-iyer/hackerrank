@@ -1,0 +1,59 @@
+#hackerrank validating email address through filter
+
+Given:
+
+email list is being taken from the user
+
+I need to write a function which will validate the email from the list 
+
+And print it in the lexicographical order
+
+Solution:
+
+1. Import regular expression
+
+Eg: username@websitename.extension
+
+re.search(r"^[\w,-]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$", s)
+
+
+^ = start of the string
+\w = Covers a-z, A-Z and 0 to 9 along with under score _ 
+However, - (minus) is not covered
+- = To check for minus
++ = To check for 1+ occurance
+@ = To check for @ symbol
+[a-zA-Z0-9] = Checking for characters
+\. = for checking period
++ = To check for 1+ occurance
+{1,3} = Max length of extention can be 3 i.e allowed between 1 to 3
+$ = Stop the search
+
+
+Final Code:
+
+import re
+
+def fun(s):
+    if (re.search("^[\w,-]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$", s)):
+        return True
+    else:
+        return False
+    
+
+def filter_mail(emails):
+    return list(filter(fun, emails))
+
+if __name__ == '__main__':
+    n = int(input())
+    emails = []
+    for _ in range(n):
+        emails.append(input())
+
+filtered_emails = filter_mail(emails)
+filtered_emails.sort()
+print(filtered_emails)
+
+
+
+

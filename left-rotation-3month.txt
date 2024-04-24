@@ -1,0 +1,22 @@
+#left rotation 3 month prep
+
+Left Rotation is:
+
+a = [1,2,3,4,5,6]
+
+iteration 1
+
+a = [2,3,4,5,6,1]
+
+l[0] moves to l[-1]
+
+Logic:
+
+a = a[1:] + [a[0]]   {On2}
+
+Now for better optimization of code
+
+a[(n+d)%n:] + a[0:(n+d)%n]
+
+n = size of array
+d = no.of rotation

@@ -1,0 +1,66 @@
+#day 22- Binary Search Trees
+
+Given:
+
+1. Height of a binary tree is the np.of nodes between root and furthest leaf
+2. Root pointer given
+
+To find:
+
+1. Complete the get height function which gives the BST height 
+
+
+I/P:
+
+n = no.of nodes
+data = value of the nodes
+
+O/p:
+
+Calculate the longest path and the no.of nodes between them
+
+Solution:
+
+BST:
+
+Left side contains: Value < root
+Right side contains: Value > root
+
+Inserting Logic:
+
+You have to insert the value to the node, which only has 1 child node
+
+If height == empty
+	height = -1
+
+Usage: Sorting <<====
+
+Recursion Must be used to CRUD on Binary Search Tree <<====
+
+Edge == Every node excluding the root
+
+Node == Every node including the root
+
+Psuedo logic:
+
+1. 
+if target < root:
+	move left
+	
+elif target > root:
+	move right
+
+elif target == root:
+	return root.loc
+else:
+	return Null
+
+Code:
+
+if not root:
+	return -1
+if not root.left and not root.right:
+	return 0
+left_height = self.getHeight(root.left) # calling the function recursively
+right_height = self.getHeight(root.right) # calling the function recursively
+return max(left_right, right_height) + 1

@@ -1,0 +1,10 @@
+class A:
+    name = ""
+
+class B(A):
+    def show(self):
+        print("Name from A", self.name)
+        
+x = B() # compulsory
+x.name = "Preacher"
+x. show()

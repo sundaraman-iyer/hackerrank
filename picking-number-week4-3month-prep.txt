@@ -1,0 +1,31 @@
+Given:
+
+1 array with elements
+
+Find:
+
+2 subarray such that, the abs(diff) between 2 elements is <= 1
+
+
+SOlution:
+
+for i in range(len(a)):
+	for j in range(len(j)):
+		if abs(a[i] - a[j]) <= 1:
+			res.append(i)
+			res.append(j)
+		elif abs(a[i]-a[j]) > 1:
+			res1.append(i)
+			res1.append(j)
+
+Solution:
+
+from collection import Counter
+
+def pick(a):
+	arr = Counter(a)
+	maxnum = 0
+	
+	for i in range(100):
+		maxnum = max(maxnum, arr[i]+arr[i+1])
+	return maxnum

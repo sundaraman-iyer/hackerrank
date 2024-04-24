@@ -1,0 +1,108 @@
+#hackerrank collections.Counter() solution
+
+===========>> Counter returns a Dictionary <<<==========
+
+Given:
+
+X number of shoes
+
+List of size of shoes
+
+N customer willing to pay x, 
+
+First I/p: X = no.of shoes
+second: space separated shoe size
+Third: N= no.of customers
+
+Explanation:
+
+Customer 1: Purchased size 6 shoe for $55.
+Customer 2: Purchased size 6 shoe for $45.
+Customer 3: Size 6 no longer available, so no purchase.
+Customer 4: Purchased size 4 shoe for $40.
+Customer 5: Purchased size 18 shoe for $60.
+Customer 6: Size 10 not available, so no purchase.
+
+Total money earned = 200
+
+Goal: Find the total Money earned
+
+Solution:
+
+Step 1: Take Inputs
+
+from collections import Counter
+
+num_of_shoes = int(input())
+list_of_sizes = list(map(int, input().split()))
+num_of_cust = int(input())
+
+counter_of_sizes = Counter(list_of_sizes)
+
+print(counter_of_sizes)
+
+#I/p:
+
+10
+2 3 4 5 6 8 7 6 5 18
+6
+
+#o/p: {5:2, 6:2, 2:1, 3:1, 4:1, 8:1, 7:1, 18:1}
+
+Step 2: Take the user input on shoe size and price
+
+for customer in range(num_of_cust):
+	size, price = list(map(int, input.split()))
+	
+Step 3: Check if the shoe size is present within the list and also check how many times is it used
+
+total = 0
+
+for customer in range(num_of_cust):
+	size, price = list(map(int, input.split()))
+	if size in counter_of_sizes:
+		if counter_of_sizes[size]>0:
+			total += price
+			counter_of_sizes[size] -= 1
+print(total)
+
+I/P:
+
+10
+
+2 3 4 5 6 8 7 6 5 18
+
+6
+
+6 55
+
+6 45
+
+6 55
+
+4 40
+
+18 60
+
+10 50
+
+
+Final Code:
+
+from collections import Counter
+
+num_of_shoes = int(input())
+list_of_sizes = list(map(int, input().split()))
+num_of_cust = int(input())
+
+counter_of_sizes = Counter(list_of_sizes)
+
+total = 0
+
+for customer in range(num_of_cust):
+    size, price = list(map(int, input().split()))
+    if size in counter_of_sizes:
+        if counter_of_sizes[size]>0: # checking if the key i.e size present in dictionary > 0
+            total += price
+            counter_of_sizes[size] -= 1
+print(total)            

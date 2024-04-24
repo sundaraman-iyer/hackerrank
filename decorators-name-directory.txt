@@ -1,0 +1,113 @@
+#hackerrank decorator Name Directory
+
+Given:
+
+1. N: Number of people
+2. I/p: FName, Lname, Age, Sex
+
+Goal:
+
+1.  Print their names in a specific format sorted by their age in ascending order i.e. the youngest person's name should be printed first. 
+
+2. For two people of the same age, print them in the order of their input.
+
+Mr. Mike Thomson
+Ms. Andria Bustle
+Mr. Robert Bustle
+
+Soln:
+
+1. Taking Input:
+
+a. 
+
+for i in range (int(input())):
+	n = input().split()
+
+b. Use the OrderDict to store the input sequence
+
+Why? Bcz we need sort the input based on the age, if ages are same, we need to sort using input seq
+
+
+from collections import OrderedDict
+
+def person_lister(f):
+    def inner(people):
+        d =  OrderedDict()
+        for i in range (len(people)):
+            d[i] = people[i]
+            print(d)
+        
+    #    return f(people)
+    return inner
+
+o/p:
+
+    OrderedDict([(0, ['Mike', 'Thomson', '20', 'M'])])
+
+    OrderedDict([(0, ['Mike', 'Thomson', '20', 'M']), (1, ['Robert', 'Bustle', '32', 'M'])])
+
+    OrderedDict([(0, ['Mike', 'Thomson', '20', 'M']), (1, ['Robert', 'Bustle', '32', 'M']), (2, ['Andria', 'Bustle', '30', 'F'])])
+
+
+OrderedDict([(0, ['Mike', 'Thomson', '20', 'M'])]): 
+x = [(0, ['Mike', 'Thomson', '20', 'M'])] {list index; starting from 0}
+1= ['Mike', 'Thomson', '20', 'M']
+2= '20' (List index, starting from 0)
+
+c. Sort wrt age and input sequence ==> Main learning
+
+temp = sorted(d.items(), key=lambda x: (x[1][2], x[0]))
+
+Corrected Sort:
+
+
+temp = sorted(d.items(), key=lambda x: int(x[1][2]), x[0]))
+
+What this is doing?
+
+sort the items in d wrt to x[1][2] i.e, age; else: sort with x[0] i.e; sort wrt to input sequence
+
+d. Passing the temp from decorator to name_format method
+
+l=[]
+
+for items in temp:
+	l.append(f(items[1]))
+
+# taking the items[1] from temp i.e:
+
+['Mike', 'Thomson', '20', 'M']
+
+And passing it to the f which is the argument function of the decorator
+
+Final Code:
+
+
+import operator
+
+from collections import OrderedDict
+
+def person_lister(f):
+    def inner(people):
+        d =  OrderedDict()
+        for i in range (len(people)):
+            d[i] = people[i]
+        
+        temp = sorted(d.items(), key=lambda x: (int(x[1][2]), x[0])) # sorting using multiple conditions
+        
+        l = []
+        
+        for items in temp:
+            l.append(f(items[1]))
+        return l
+    return inner
+
+@person_lister
+def name_format(person):
+    return ("Mr. " if person[3] == "M" else "Ms. ") + person[0] + " " + person[1]
+
+if __name__ == '__main__':
+    people = [input().split() for i in range(int(input()))]
+    print(*name_format(people), sep='\n')
+

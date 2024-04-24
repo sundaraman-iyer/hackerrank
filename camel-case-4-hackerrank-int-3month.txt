@@ -1,0 +1,114 @@
+#hackerrank week 1- ch5- camel case 4
+
+Task:
+
+Split the camel case based on:
+
+- Class: NamePattern
+- Method, variable: namePattern
+
+Given:
+
+S: Split
+C: Combine
+M: Method
+C: Class
+V: Variable
+
+Solution:
+
+Sample input: S;M;plasticCup()
+
+str = input().rstrip()
+
+op = str[0]
+Because at 1,3 = ; is present
+ot = str[2]
+str = list(str[4:]) # if not conv. to list
+
+Conditions:
+
+if op == 'S': #split
+	temp = ""
+	if ot == 'M':
+		for s in str[:-2]: # since last two will ()
+			if s.islower():
+				temp += s
+			else:
+				temp += f ' {s.lower()}' # if caps, conv to lower and add to temp
+		print(temp)
+			
+	elif ot == 'V':
+		for s in str: # iterating till last bcz, variable will not have () at the last
+			if s.islower():
+				temp += s
+			else:
+				temp += f ' {s.lower()}' # if caps, conv to lower and add to temp
+		print(temp)	
+	
+	elif ot == 'C':
+		temp += string[0].lower() # adding the starting letter of the class to temp
+		for s in str[1:]: # iterating till the end starting from index 1
+			if s.islower():
+				temp += s
+			else:
+				temp += f ' {s.lower()}' # if caps, conv to lower and add to temp
+		print(temp)
+
+if op == 'C':
+	temp = string.copy() # so I dont disturb the original string
+	
+	for i in range(len(str)):
+		if str[i] == " ":
+			temp[i+1] =  temp[i+1].upper() 
+
+
+	if ot == 'M':
+		temp = "".join(temp)
+		temp = temp.replace(" ", "") #replace space with no space
+		print(temp + "()") #adding () at the end of the code
+
+	elif ot == 'V':
+		temp = "".join(temp)
+		print(temp.replace(" ", ""))
+	
+	elif ot == 'C':
+		temp[0] = temp[0].upper()
+		temp = "".join(temp)
+		print(temp.replace(" ", ""))
+
+------- The above code does not work -------
+
+The below code works
+
+import re
+while True:
+    try:
+        s = input().rstrip()    
+        sc, mcv, op = s.split(";")
+        if sc == "S":
+            if mcv == "M":
+                cap = op[:-2]                                   
+                
+            if mcv == "C" or mcv == "V":
+                cap = op
+            
+            s = re.sub ("(\w)([A-Z])", r"\1 \2", cap)
+            print (s.lower())
+                
+        if sc == "C":
+            cap = op.title ()
+            s = re.sub (r" ", r"", cap)
+            q = s[:1].lower() + s[1:]                
+            
+            if mcv == "M":                                
+                print (q+"()")
+                
+            if mcv == "C":
+                print (s)
+              
+            if mcv == "V":
+                print (q)
+            
+    except EOFError:
+        break

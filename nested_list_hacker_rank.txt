@@ -1,0 +1,152 @@
+Hacker Rank: Nested List Python Challenge
+
+
+1. my_nested_list = [[1,2],['a','b'],['Joe',25]]
+			0      1	  2 
+
+So now to access the list:
+
+my_nested_list[1]
+>> ['a','b']
+
+my_nested_list[1][1]
+>> [b]
+
+2. __main__ a.k.a execution part
+
+- Always create a Pass func, to study the execution part
+- This will help you understand how the main function is working
+
+3. Now for you create a new record, which has the name and score of the user input
+
+You need an empty list, otherwise where will you put the code
+
+if __name__ == '__main__':
+    for _ in range(int(input())):
+        records = []
+        name = input()
+        score = float(input())
+
+4. Now when you want to add the elements of names and scores inside the records
+
+You need to use append()
+
+list.append = this will add the entire list as 1 single element
+
+if __name__ == '__main__':
+    for _ in range(int(input())):
+        records = []
+        name = input()
+        score = float(input())
+	records.append([name,score])
+
+5. Pushing
+
+Once I have the data from the execution part in records.append
+
+I will now push the data to the method: def test(records)
+
+def test(records):
+	---logic---
+
+6. Sort Logic
+
+I have to sort the names wrt to the scores
+
+For that I have to access the elements inside the list
+
+For accessing the list we can use: list_name[index_value]
+
+Eg: my_nested_list = [['a',2],['b','4'],['Joe',25]]
+
+my_nested_list[1][0]
+
+>> a
+
+my_nested_list[1]
+
+>> ['a','b']
+
+def test(records):
+	scores = [] # since I want to sort the names wrt to scores
+	for marks in my_nested_list:
+		scores.append(marks[1]) # what is happening here is?
+		# I have taken an empty list 
+		# Then I am traversing through the my_nested_list
+		# Then taking each element inside that list from index 1 i.e marks
+		# Then Appending it to the empty list
+	print(scores)
+>>> [2,4,25]
+
+7. Sorting the scores
+
+sorted(scores)
+
+8. Removing the duplicates, if present
+
+sorted(set(scores))
+
+>>> Since, I have used set here, it will remove all the duplicated present inside the lists
+
+Now, the code becomes
+
+def test(records):
+	scores = [] # since I want to sort the names wrt to scores
+	for marks in my_nested_list:
+		scores.append(marks[1])
+	sorted_scores = sorted(set(socres))
+
+9. Logic for the second highest score
+
+Eg of the sorted set score = [2,4,25]
+
+For second highest, we need to take the value at index
+
+Why?
+
+Because at index 0, we will be having the value of the lowest score
+
+Hence, the second index.
+
+Now the code becomes,
+
+
+def test(records):
+	scores = [] # since I want to sort the names wrt to scores
+	for marks in my_nested_list:
+		scores.append(marks[1])
+	sorted_scores = sorted(set(socres))
+	second_lowest_score = sorted_scores[1]
+
+10. Getting the names
+
+I have the second_lowest_score stored 
+
+Now, what I want is the name
+
+So how I do that?
+
+==> For that, You need another empty list which can store the names of the users 
+
+However, the condition will be to check the second lowest marks
+
+names_second_lowest = []
+
+for names in my_nested_list:
+	if names[1] == second_lowest: # checking the marks from my_nested_list which is at index 1 == second_lowest Remember: index 0 is the position of names
+	names_second_lowest.append(names[0]) # since at index 0 of my_nested_list is their names
+print(names_second_lowest)
+
+11. Sort the names which are found 
+
+names_second_lowest = []
+
+for names in my_nested_list:
+	if names[1] == second_lowest: # checking the marks from my_nested_list which is at index 1 == second_lowest Remember: index 0 is the position of names
+	names_second_lowest.append(names[0]) # since at index 0 of my_nested_list is their names
+names_second_lowest_updated = sorted(names_second_lowest)
+
+12. Printing
+
+for name in names_second_lowest:
+	print(name)

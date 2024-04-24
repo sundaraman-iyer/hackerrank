@@ -1,0 +1,59 @@
+#hackerrank sales by match
+
+Color 1: 1 pair
+Color 2: 1 pair
+
+3 odd socks left which is of color 1,2,3 and no.of pairs : 2
+
+n = 7
+
+[1,2,1,2,1,3,2]
+
+1-1
+2-2
+
+left: 1,2,3
+
+TO find: THe no.of pairs
+
+Soln:
+
+[1,2,3,2,3,6,1,6,3]
+
+1-1: Pair 1
+2-2: Pair 2
+3-3: Pair 3
+6-6: Pair 4
+
+Left: 3
+
+Total pairs: 4
+
+I have to find the duplicate and then increment the counter by 1
+
+Create a uniq = []
+
+Append the numbers traversing
+
+If the numb in unique == traversing number:
+	counter+=1
+	remove the current item 
+
+
+Psuedo:
+
+def sock(n,ar):
+	temp = []
+	count = 0
+
+	for sock in range(n):
+		if arr[sock] not in temp:
+			temp.append(arr[sock])
+		#if already present in the temp
+		else:
+			for temp_sock in range(len(temp)):
+				if arr[sock] == temp[temp_sock]:
+					temp.pop(temp_sock)
+					count +=1
+					break
+	return count

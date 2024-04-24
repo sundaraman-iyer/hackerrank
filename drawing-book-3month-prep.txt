@@ -1,0 +1,37 @@
+#drawing book
+
+n = total pages
+p = target page no
+
+To find:
+
+1. Shortest path to the target from the first page or the last page such taht minimum pages are required
+
+SOln:
+
+formulae:
+
+1. Going from Left to target:
+
+(target_page//2)
+
+2. Going from Right to target:
+
+odd target_page_no:
+
+(last_page-target_page)//2
+
+even_target_page_no:
+((lastpage+1)-target_page)//2
+
+i.e change the last page_no from even to odd
+
+Code:
+
+l = p//2
+
+n=n+1 if n%2==0 else n # if even change to odd else, keep n same
+
+r = (n-p)//2
+
+return min(l,r)

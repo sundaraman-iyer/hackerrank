@@ -1,0 +1,53 @@
+#week3 test
+
+Given:
+
+2 arrays of integer
+
+To Find :
+
+- Multiples of first array
+- Factors of seconds array
+
+Solution:
+
+Eg:
+
+a = [2,6]
+b = [24,36]
+
+Condition 1:
+
+Multiples:
+
+2 = 2,4,,6,8,10,12,14..
+6 = 6,12,18,24,30,36..
+
+Factors:
+
+24 = 2,3,4,6,8,12,24
+36 = 2,3,4,6,9,12,18
+
+Common:
+
+[6,12]
+
+Answer: Counter =  2
+
+COde:
+
+for i in range(max(a), min(b)+1):
+	isFactorMultiple = True
+	
+	for ele in a:
+		if i % ele != 0:
+			isFactorMultiple = False
+			break
+	
+	for ele in b:
+		if ele % i !== 0:
+			isFactorMultiple == True
+	
+	if isFactorMultiple == True
+		result +=1
+return result
