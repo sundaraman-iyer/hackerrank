@@ -1,0 +1,64 @@
+#closest numbers
+
+Given:
+
+I/P:
+
+1. N as integer which is the length of array
+
+2. Input which is the values inside the array
+
+To find:
+
+The pair of elements which have the smallest absolute difference
+
+Return in array format
+
+Eg:
+
+1. 
+
+10
+-20 -3916237 -357920 -3620601 7374819 -7330761 30 6246457 -6461594 266854 
+
+Output:
+
+-20 30
+
+Explanation:
+
+(30) - (-20) = 50, which is the smallest difference
+
+2. 
+
+4
+5 4 3 2
+
+O/P:
+
+2 3 3 4 4 5
+
+Logic:
+
+1. Sort the array
+2. initial a min value = 0
+3. compare the value everytime a diff is calculated
+4. note the i and j value to a list
+5. Finally print the array
+
+Code:
+
+pairs = []
+min_diff = 99999 # this is the change which I made
+arr.sort()
+
+for i in range(1, len(arr)): # why 1? bcz I want to take the previous element to calc diff
+	diff = abs(arr[i-1] - arr[i])
+	#new minimum difference
+	if diff < min_diff:
+		min_diff = diff
+		pairs = [arr[i-1],arr[i]]
+	#already existing minimum difference
+	elif d == min_diff: # they are already a pair
+		pairs.extend([arr[i-1],arr[i]])
+return pairs

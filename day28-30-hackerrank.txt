@@ -1,0 +1,56 @@
+#day 28 of 30: Regex
+
+The pattern we will be working on is:
+
+r"@gmail\.com$"
+
+Why?
+
+@gmail - to check for gmail domain
+\. - to check for period
+com$ - to indicate the end of line
+
+Logic:
+
+We are going to compile the regex into a string
+
+and then search the entire string for the pattern
+
+Conditions:
+
+1. If the input contains the @gmail.com, then we need to sort the first names in alphabetical order
+
+Code:
+
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+if __name__ == '__main__':
+
+    N = int(input().strip())
+
+    namelist = []
+    
+    pattern = r"@gmail\.com$"
+    regex = re.compile(pattern)
+
+
+    for N_itr in range(N):
+        first_multiple_input = input().rstrip().split()
+
+        firstName = first_multiple_input[0]
+
+        emailID = first_multiple_input[1]
+        
+        if regex.search(emailID):
+            namelist.append(firstName)
+
+    namelist.sort()
+    for name in namelist:
+        print(name)

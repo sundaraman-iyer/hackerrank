@@ -1,0 +1,43 @@
+#tower breakers 3month prep
+
+Explantion reference: https://www.youtube.com/watch?v=jOxTTE3IkjE
+
+Given:
+
+n = no of towers
+m = initial height of tower
+The player chooses a tower of height x and reduces to y
+
+i.e:
+
+x = current height of the tower
+y = new height of the tower
+
+How to Play:
+
+Reduce size of the tower such that the new height y is divisible by current height x
+
+Note:
+
+Towers can be reduced to any height upto 1 (since all numbers are divisble by 1)
+
+End Goal to win the game:
+
+You cannot let the other player make their turn
+
+Meaning: You have to reduce the tower height to 1. Hence no more moves
+
+Logic:
+
+When the no.of towers = 1: Player 1 always wins
+When the height = 1: Player 2 always wins
+
+When even towers, Player 1 loses
+When odd towers, Player 2 loses
+
+Psuedo Code:
+
+if m == 1 or n%2 == 0:
+	return 2
+else:
+	return 1
