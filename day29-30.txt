@@ -1,0 +1,38 @@
+#day 29 Bitwise AND
+
+BitwiseAND operator: Bitwise AND operator Returns 1 if both the bits are 1 else 0.
+
+Given:
+
+2 Inputs: 
+
+1st input is the no.of test cases
+2nd input is the no to covert 
+3rd input is K i.e the max value
+
+To find:
+
+Max value of A BitwiseAND B within the limit
+
+Logic
+
+1. We need to initialize the max value = 0, for comparisoin
+2. We will loop through the entire input using i till that raange
+3. Inside the i for loop we will loop through the entire set using j
+What this will do is: for every value of i, it will check with j and compare for the condition below
+4. Now I have to do the bitwise "i & j"
+5. Checking for the condition max < curr_bitwise < k:
+6. If ues then max = curr_bitwise
+7. return the max
+
+Code:
+
+def find(n,k):
+	max_bitwise = 0
+
+	for i in range(1,n+1):
+		for j in range(1,i):
+			curr_bitwise = i&j
+			if max_bitwise < curr_bitwise < k:
+				max_bitwise = curr_bitwise
+	return max_bitwise
