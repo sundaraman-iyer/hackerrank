@@ -1,0 +1,88 @@
+Seperate the numbers
+
+String of int
+
+curr - prev = 1, where curr starts at 1
+
+No leading zeros
+
+No rearrangement
+
+Return Yes + smallest number in the sequence - If beautiful
+
+else - NO
+
+Logarithm:
+
+1. Generate the string of the length and find all possible beautiful string out of it
+
+Example:
+
+original_string = 99100101
+
+1. Take 9 and generate a beautiful string meaning:
+
+new_string = 91011121
+
+The len(new_string) = len(original_string)
+
+Here, all we did was to take 9 and +1 to it till it reached len(oringal_string)
+
+2. Compare the length of the new_string == orginal_string
+
+If Yes: return Yes + new_string[0]
+
+Else: step 3
+
+3. Take 1st and 2nd digit and repeat the increament by +1
+
+4. Remember: You only need to do it till middle or half of len(orginal_string)
+
+Bcz,
+
+920919 
+
+Say You took 4 digits, 9209 + 1 = 9210
+
+Now, new_string=  92099210 
+
+len(original_string) != len(new_string)
+
+Code:
+
+if len(s) == 1:
+	return "NO"
+else:
+	for i in range(1, len(s)//2 + 1): # traversiing to the half of the string
+		new_string = s[i] # wrong since, string cannot be increamented and indexing is also wrong
+		new_string = s[:i] # I want the digits till the range of i, not only i
+		incremented_new_string_number = int(new_string) + 1 # now I have created the next digit
+		while len(new_string) < len(s): # this loop will generate the nubers 
+			incremented_new_string_number +=1
+			new_string += str(incremented_new_string_number)	
+
+			if s == incremented_new_string:
+				return "YES" + s[:i]
+			else:
+				return "NO"
+
+Final Code:
+
+    if len(s) == 1:
+        print("NO")
+        return
+    else:
+        for i in range(1, len(s)//2 + 1): # traversiing to the half of the string
+            new_string = s[:i] # I want the digits till the range of i, not only i
+            incremented_new_string_number = int(new_string) # now I have created the next digit
+            while len(new_string) < len(s): # this loop will generate the nubers 
+                incremented_new_string_number +=1
+                new_string += str(incremented_new_string_number)    
+
+                if new_string == s:
+                    print("YES " + s[:i])
+                    return
+        
+        print("NO")
+        return 
+		

@@ -1,0 +1,64 @@
+#minimum absolute difference 3month
+
+Given:
+
+1. Array will be given, you have to find the minimum differnce between 2 numbers
+
+[2 -2 4]
+
+|2-(-2)| = 4
+
+Logic:
+
+1. To find the minimum difference, all you have to understand is 
+
+a. the difference between the highest and the second highest will be smallest
+
+Hence, first sort the array
+
+2. Min_val = Google(max int value in python), this will be where the number will be stored
+
+3. Loop through every number and calc the diff
+
+diff = abs(arr[i]-arr[i+1])
+
+4. Compare the diff with min_value, if diff < min_value: min_value; else diff
+
+5. return min_value
+
+Code:
+
+arr.sort()
+min_val = 214783648
+
+for i in range(len(arr)-1): #because, I want to start from zero and last will also be checked
+	diff = abs(arr[i]-arr[i+1])
+	if diff < min_val:
+		min_val = diff
+return min_val
+
+
+Remember:
+
+a. When You have to find the minimum difference: always take the max_value to compare
+i.e Google max int value in python
+
+Bcz you need to compare the curr_value with max_value to the min_value
+
+if you assign 0, there can be -1 or even 0 at sometimes
+
+Always remember this:
+
+Find: min value
+
+You need to compare it with the max int value in Python - Google
+
+==>> And then constantly assign compare if curr_value < max_value: max_val=curr_val
+
+b. When You have to ginf the maximum difference: always initial the value of min_value(the comparing value) = 0
+
+Bcz you need to constantly compare the curr_diff > min_value: min_value == curr_diff
+----
+
+==>> To find: max_value; initial min_val = 0
+To find: min_value; initial max_value = Google the max int value in python
