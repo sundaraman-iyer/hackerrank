@@ -1,0 +1,30 @@
+Decorators:
+
+Output required: +91 xxxxx xxxxx
+
+I/P:
+
+['07895462130', '919875641230', '9195969878']
+
+Algorithm:
+
+1. According to the trick: Varying number at start, means start at eh end
+2. Step 1: Loop through the list as per the user range
+3. Take the first element and slice it from last upto 5 and conv to int
+4. Now take the fist element and slice it from -5 to -10 and conv to int
+5. Now I have two options: store in variable or in list
+6. List is the better option bcz, the other function is going to unpack the code
+7. Appending it to the list in the string format 
+8. return the appended list
+
+Optimized Code: No need to convert to int
+
+def wrapper(func):
+    def core_logic(l):
+        res = []
+        for i in range(len(l)):
+            last = l[i][-5:]
+            first = l[i][-10:-5]
+            res.append("+91 " + first + " " + last)
+        return func(res)
+    return core_logic

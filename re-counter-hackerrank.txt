@@ -1,0 +1,44 @@
+#re-practice of counter
+
+Given:
+
+X - no of shoes
+N - no of customers
+x - shoe size and the prices
+
+Algorithm:
+
+1. Need a size:no of shoes hashmap where the no of sizes of shoes are persent
+2. Take input again from user
+3. CHeck whether that particular shoe size is present and no of shoes  > 0
+4. If yes, take the price, and decrement the no of shoes counter
+5. If no of shoes reaches zero: Out of stock
+6. If size not available: not available
+7. Final: print the total money earned
+
+Code:
+
+from collections import Counter
+
+x = int(input())
+
+#for i in range(x): # wrong logic, No need of for loop; it will take 10 input automatically.
+# only reason to take for loop is when you want to make 10 lists of 10 values = 100
+
+shoe_sizes = list(map(int, input().split()))
+
+counter_sizes = Counter(shoe_sizes)
+
+customers = int(input())
+
+total= 0
+
+for i in range(customers):
+	size, price = list(map(int, input().split())) #taking he first input as size and second as price
+	#logic
+	if size in counter_sizes.keys(): #5 in size?
+		if counter_sizes[size] > 0: #counter of 5 > 0  # misak was to check with values; does not work. You need to check with keys otherwise it wont understanfd
+			total += price
+			counter_size[size] -= 1
+
+		

@@ -1,0 +1,112 @@
+#ceaser-cipher 3 month prep
+
+Given:
+
+Orginal text: abcdefghijklmnopqrstuvwxyz
+Rotated +3: defghijklmnopqrstuvwxyzabc
+
+3 inputs:
+
+n = no of characters
+s = org string
+k = rotation character
+
+Constraints:
+
+- remains unencrytped
+
+Logic:
+
+K = 0
+K = 26 
+
+Both are same
+
+K = 1
+K = 27
+
+Both are same
+
+So we need to bring the value of K between: 0 to 25
+
+Bcz, 26 is same as 0
+27 is same as 1
+
+Hence, we need to mod by 26
+
+k % 26 which keeps the value under 25
+
+Now,
+
+We need to use ASCII values to rotate the characters
+
+ascii of a =  97
+
+k = 2
+
+97+2 = 99
+
+ascii (99) = c
+
+---
+
+Catch: 
+
+1. What if the value is z
+
+Ascii of z is 122
+
+k = 2
+
+122+2 = 124
+
+ascii(124) = NA
+
+So what we have to do is 
+
+124 % 122 and take the reminder
+
+reminder = 2
+
+And take that and add it to 97 
+
+Now it will 97+2 = 99
+
+However, it is wrong since, it has to point to 98
+
+Hence we do (-1)
+
+Formula for rotation above 122 
+
+new_ascii = (curr_ascii%122) + 97 - 1
+
+
+Algorithm:
+
+1. Check for the ascii of A
+2. Check for the ascii of a
+3. If the character is upper; then 65 + (current_aplhabet_ascii-65 + k)%26
+4. If small; then 97 + (current_alphabet_ascii - 65 + k) %26
+5. Else return add the character i.e symbols
+6. Return the string
+
+Code:
+
+ord ==> Converts alphabets to ascii
+chr ==> Converts ascii to alphabets
+
+def caesarCipher(s, k):
+    # Write your code here
+    new_string = ''
+    ord_a = ord('a')
+    ord_A = ord('A')
+    for i in s:
+        if i.isalpha():
+            if i.isupper():
+                new_string += chr(ord_A + ((ord(i)-ord_A+k)%26))
+            else:
+                new_string += chr(ord_a + ((ord(i)-ord_a+k)%26))
+        else:
+            new_string += i
+    return new_string
+

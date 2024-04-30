@@ -1,0 +1,46 @@
+N = no of students
+X = no of subjects
+
+5 3
+89 90 78 93 80
+90 91 85 88 86  
+91 92 83 89 90.5
+
+5 students
+
+3 subjects
+
+
+Algorithm:
+
+1. Take the input of no of students and subj
+2. Take the input for marks for N subjects
+3. Store it in a list (at this point the output will be like:
+[89,34,44],[1,5,7],[77,8,55]
+
+)
+
+4. Now all you have to do is zip, unpack(*) and store it in a list since zip 
+returns memory loc and output is list of tuples
+
+5. Calculate the average by looping through zipped list of tuples
+
+Code:
+
+nx = list(map(int, input().split()))
+n, x = nx[0], nx[1]
+
+for i in range(x):
+	res.append(list(map(float, input().split()))) #[
+[89,34,44],[1,5,7],[77,8,55]
+]
+
+zip_var = list(zip(*marks))
+print(zip_var) # [(89,1,77),(34,5,8),(44,7,55)]
+
+for i in zip_var:
+	avg = (sum(i) / x) # sum of tuple in list / no of subj
+	print(avg)
+
+
+	 
