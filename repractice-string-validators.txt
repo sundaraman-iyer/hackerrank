@@ -1,0 +1,40 @@
+re-practice-string-validator
+
+Given a string
+
+Check whether alphanumeric, alphabetic, numeric.=, lowercase or nothing
+
+Algorithm:
+
+Check every element in the string whether it is any of above
+1. Take the string
+2. Loop through every element
+3. Check for the above conditions # mistake: Didnt realize any() function has to be used
+4. print
+
+Code:
+
+s = input()
+
+for elements in s: #my mistake here again; not understanding what the for loop is doing here
+
+This is the better approach to write the for loop	
+any(element.isalnum() for element in s)
+any(element.isalpha() for element in s)
+any(element.isdigit() for element in s)
+any(element.isupper() for element in s)
+
+#still there is mistake: no print statement
+
+print(any(element.isalnum() for element in s))
+print(any(element.isalpha() for element in s))
+print(any(element.isdigit() for element in s))
+print(any(element.isupper() for element in s))
+
+# again a mistake: left out islower()
+
+    print(any(element.isalnum() for element in s))
+    print(any(element.isalpha() for element in s))
+    print(any(element.isdigit() for element in s))
+    print(any(element.islower() for element in s)) #<<===
+    print(any(element.isupper() for element in s))
