@@ -86,7 +86,7 @@ Algorithm:
 1. Check for the ascii of A
 2. Check for the ascii of a
 3. If the character is upper; then 65 + (current_aplhabet_ascii-65 + k)%26
-4. If small; then 97 + (current_alphabet_ascii - 65 + k) %26
+4. If small; then 97 + (current_alphabet_ascii - 97 + k) %26
 5. Else return add the character i.e symbols
 6. Return the string
 
